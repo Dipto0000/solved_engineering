@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BadgeCheck, CheckCircle2, MessageCircle, Phone, Quote } from "lucide-react";
 
 import Button from "@/components/ui/Button";
@@ -35,9 +36,13 @@ export default function Founder() {
             {/* Founder identity + quote */}
             <div>
               <div className="flex items-center gap-4">
-                <span className="grid size-16 shrink-0 place-items-center rounded-xl bg-accent font-mono text-xl font-bold text-brand-dark">
-                  {founder.initials}
-                </span>
+                <Image
+                  src="/assets/roman_kakku_image.jpg"
+                  alt={founder.name}
+                  width={64}
+                  height={64}
+                  className="size-16 shrink-0 rounded-xl object-cover"
+                />
                 <div>
                   <h3 className="text-xl font-bold tracking-tight">
                     {founder.name}
