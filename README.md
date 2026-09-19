@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Solved Engineering — Portfolio Landing Page
 
-## Getting Started
+A single-page, mobile-first marketing site for **Solved Engineering**, a
+multi-trade contracting business. Built with Next.js (App Router), Tailwind CSS
+v4 and Lucide React icons.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Tool          | Version | Notes                                  |
+| ------------- | ------- | -------------------------------------- |
+| Next.js       | 16.x    | App Router, statically prerendered     |
+| React         | 19.x    | Server Components by default           |
+| Tailwind CSS  | 4.x     | Design tokens declared in `globals.css` |
+| lucide-react  | 1.x     | Service and UI icons                   |
+
+Plain JavaScript — no TypeScript.
+
+## Design tokens
+
+| Token          | Hex       | Role                       |
+| -------------- | --------- | -------------------------- |
+| `brand`        | `#1E293B` | Steel Navy — headings, surfaces |
+| `brand-dark`   | `#0F172A` | Deep steel — hero, footer  |
+| `accent`       | `#F59E0B` | Amber — CTAs, highlights   |
+| `canvas`       | `#F8FAFC` | Crisp Light Gray — page bg |
+
+Tokens live in the `@theme` block of `app/globals.css`, so they are available as
+Tailwind utilities (`bg-brand`, `text-accent`, `bg-canvas`, …). Two custom
+utilities are also defined: `blueprint-grid` and `hazard-stripes`.
+
+## Structure
+
+```
+app/
+  layout.js                 Root layout: fonts, metadata, viewport
+  page.js                   Assembles the single page
+  globals.css               Tailwind import, theme tokens, base styles
+components/
+  layout/
+    Header.js               Sticky nav + "Call Now" CTA (client)
+    Footer.js               Service and contact links
+    MobileActionBar.js      Fixed Call / WhatsApp bar (mobile only)
+  sections/
+    Hero.js                 Value proposition + trust metrics
+    Services.js             Grid of the 7 service lines + conversion card
+    Gallery.js              Work showcase grid
+    Founder.js              Leadership & Trust card
+    Contact.js              Lead form with service dropdown (client)
+  ui/
+    Container.js            Max-width wrapper
+    Button.js               Shared CTA element (link or button)
+    SectionHeading.js       Eyebrow + title + description
+lib/
+  site.js                   Business details, founder, stats, guarantees
+  services.js               The 7 services + dropdown options
+  gallery.js                Showcase entries and grid spans
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Page order
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Hero → Services → Our Work (Gallery) → Leadership & Trust (Founder) → Contact,
+with the sticky header above and the mobile action bar below.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuration
 
-## Learn More
+**All business details live in `lib/site.js`.** Replace the placeholders before
+going live:
 
-To learn more about Next.js, take a look at the following resources:
+- `phoneDisplay` / `phoneRaw` — the `tel:` and `wa.me` links in the header,
+  hero, founder card, contact section, mobile action bar and footer all derive
+  from these two values.
+- `email`, `address`, `hours`
+- `founder` details and `stats`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Images
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The hero and gallery use Unsplash photography, allowlisted in
+`next.config.mjs` via `images.remotePatterns`. To use your own photos, drop them
+in `public/` and change the `src` values in `lib/gallery.js` — local files need
+no config change.
 
-## Deploy on Vercel
+### Lead form
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`components/sections/Contact.js` validates the fields client-side, then opens
+WhatsApp with the enquiry prefilled, so leads reach the team with no backend.
+To send leads elsewhere (email service, CRM, API route), replace the
+`window.open(...)` block in `handleSubmit` with your own `fetch()`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+```bash
+npm run dev      # development server
+npm run build    # production build (prerenders / as static HTML)
+npm run start    # serve the production build
+npm run lint     # ESLint
+```
