@@ -1,11 +1,19 @@
 import {
   ArrowRight,
+  Cctv,
+  DoorOpen,
   Droplets,
   Grid3x3,
   Hammer,
+  House,
+  Layers,
+  LayoutGrid,
   PaintRoller,
+  PanelTop,
   Phone,
+  Pickaxe,
   SprayCan,
+  Umbrella,
   Wrench,
   Zap,
 } from "lucide-react";
@@ -25,15 +33,23 @@ const ICONS = {
   electrical: Zap,
   cleaning: SprayCan,
   renovation: Hammer,
+  "cctv-installation": Cctv,
+  roofing: House,
+  waterproofing: Umbrella,
+  plastering: Layers,
+  "door-repair": DoorOpen,
+  "tiling-vinyl": LayoutGrid,
+  "ceiling-partition": PanelTop,
+  hacking: Pickaxe,
 };
 
-/** Grid of the seven core service lines. */
+/** Grid of the fifteen core service lines. */
 export default function Services() {
   return (
     <section id="services" className="bg-canvas py-16 sm:py-20 lg:py-24">
       <SectionHeading
         eyebrow="What we do"
-        title="Seven service lines, one point of contact"
+        title="Fifteen service lines, one point of contact"
         description="No chasing separate contractors. Tell us the scope and we handle the trades, the materials and the timeline end to end."
       />
 
@@ -73,7 +89,7 @@ export default function Services() {
             );
           })}
 
-          {/* Fills the 8th grid cell with a conversion card */}
+          {/* Fills the 16th grid cell with a conversion card */}
           <article className="flex flex-col justify-between rounded-xl border border-brand bg-brand p-6 text-white shadow-card">
             <div>
               <span className="grid size-11 place-items-center rounded-lg bg-white/10">

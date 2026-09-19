@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
-/** Above-the-fold value proposition covering all seven service lines. */
+/** Above-the-fold value proposition covering all fifteen service lines. */
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-brand-dark text-white">
@@ -37,11 +37,11 @@ export default function Hero() {
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
               From a leaking pipe to a full renovation — we deliver plumbing,
-              painting, flooring, epoxy pointing, electrical, cleaning and
+              painting, waterproofing, electrical, CCTV, tiling and
               renovation work with fixed pricing and a single point of contact.
             </p>
 
-            {/* All seven services at a glance */}
+            {/* All fifteen services at a glance */}
             <ul className="mt-7 flex flex-wrap gap-2">
               {services.map((service) => (
                 <li
@@ -97,8 +97,8 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-brand shadow-2xl">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=70"
-                  alt="Solved Engineering crew finishing an on-site renovation project"
+                  src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=70"
+                  alt="Plumber repairing a sink for Solved Engineering"
                   fill
                   priority
                   sizes="(min-width: 1024px) 560px, 100vw"
