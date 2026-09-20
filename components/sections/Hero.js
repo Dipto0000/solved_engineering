@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
-/** Above-the-fold value proposition covering all fifteen service lines. */
+/** Above-the-fold value proposition covering all sixteen service lines. */
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-brand-dark text-white">
@@ -41,7 +41,7 @@ export default function Hero() {
               renovation work with fixed pricing and a single point of contact.
             </p>
 
-            {/* All fifteen services at a glance */}
+            {/* All sixteen services at a glance */}
             <ul className="mt-7 flex flex-wrap gap-2">
               {services.map((service) => (
                 <li

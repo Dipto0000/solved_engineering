@@ -42,7 +42,7 @@ components/
     MobileActionBar.js      Fixed Call / WhatsApp bar (mobile only)
   sections/
     Hero.js                 Value proposition + trust metrics
-    Services.js             Grid of the 15 service lines + conversion card
+    Services.js             Grid of the 16 service lines + conversion card
     Gallery.js              Work showcase grid
     Founder.js              Leadership & Trust card
     Contact.js              Lead form with service dropdown (client)
@@ -52,7 +52,7 @@ components/
     SectionHeading.js       Eyebrow + title + description
 lib/
   site.js                   Business details, founder, stats, guarantees
-  services.js               The 15 services + dropdown options
+  services.js               The 16 services + dropdown options
   gallery.js                Showcase entries and grid spans
 ```
 

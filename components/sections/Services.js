@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import {
+  Anvil,
   ArrowRight,
   Cctv,
   ChevronDown,
@@ -46,9 +47,10 @@ const ICONS = {
   "tiling-vinyl": LayoutGrid,
   "ceiling-partition": PanelTop,
   hacking: Pickaxe,
+  "metal-aluminium": Anvil,
 };
 
-/** Grid of the fifteen core service lines — shows six until expanded. */
+/** Grid of the sixteen core service lines — shows six until expanded. */
 export default function Services() {
   const [showAll, setShowAll] = useState(false);
   const visibleServices = showAll ? services : services.slice(0, 6);
@@ -57,7 +59,7 @@ export default function Services() {
     <section id="services" className="bg-canvas py-16 sm:py-20 lg:py-24">
       <SectionHeading
         eyebrow="What we do"
-        title="Fifteen service lines, one point of contact"
+        title="Sixteen service lines, one point of contact"
         description="No chasing separate contractors. Tell us the scope and we handle the trades, the materials and the timeline end to end."
       />
 
