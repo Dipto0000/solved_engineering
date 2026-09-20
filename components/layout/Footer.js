@@ -104,7 +104,7 @@ export default function Footer() {
 
         <div className="mt-3 flex flex-col items-start justify-between gap-3 text-xs sm:flex-row sm:items-center">
           <p className="text-slate-400">
-            Made by{" "}
+            Made with ❤️ by{" "}
             <a
               href="mailto:dipto2041@gmail.com"
               className="font-semibold text-slate-200 transition-colors hover:text-accent"
