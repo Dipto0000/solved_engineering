@@ -97,8 +97,8 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-brand shadow-2xl">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=70"
-                  alt="Plumber at work repairing a sink"
+                  src="/assets/hero_image.jpeg"
+                  alt="Solved Engineering team at work on site"
                   fill
                   priority
                   sizes="(min-width: 1024px) 560px, 100vw"
