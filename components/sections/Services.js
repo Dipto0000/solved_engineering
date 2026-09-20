@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import {
   ArrowRight,
   Cctv,
+  ChevronDown,
+  ChevronUp,
   DoorOpen,
   Droplets,
   Grid3x3,
@@ -43,8 +48,11 @@ const ICONS = {
   hacking: Pickaxe,
 };
 
-/** Grid of the fifteen core service lines. */
+/** Grid of the fifteen core service lines — shows six until expanded. */
 export default function Services() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleServices = showAll ? services : services.slice(0, 6);
+
   return (
     <section id="services" className="bg-canvas py-16 sm:py-20 lg:py-24">
       <SectionHeading
@@ -55,7 +63,7 @@ export default function Services() {
 
       <Container className="mt-10 sm:mt-12">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => {
+          {visibleServices.map((service) => {
             const Icon = ICONS[service.slug] ?? Wrench;
 
             return (
@@ -89,7 +97,7 @@ export default function Services() {
             );
           })}
 
-          {/* Fills the 16th grid cell with a conversion card */}
+          {/* Closes the grid with a conversion card */}
           <article className="flex flex-col justify-between rounded-xl border border-brand bg-brand p-6 text-white shadow-card">
             <div>
               <span className="grid size-11 place-items-center rounded-lg bg-white/10">
@@ -115,6 +123,27 @@ export default function Services() {
               </Button>
             </div>
           </article>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Button
+            onClick={() => setShowAll((value) => !value)}
+            variant="outline"
+            size="md"
+            aria-expanded={showAll}
+          >
+            {showAll ? (
+              <>
+                Show less
+                <ChevronUp className="size-4" aria-hidden="true" />
+              </>
+            ) : (
+              <>
+                Show all {services.length} services
+                <ChevronDown className="size-4" aria-hidden="true" />
+              </>
+            )}
+          </Button>
         </div>
       </Container>
     </section>

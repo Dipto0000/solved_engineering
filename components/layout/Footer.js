@@ -101,6 +101,27 @@ export default function Footer() {
             Founder-led · {site.contact.address}
           </p>
         </div>
+
+        <div className="mt-3 flex flex-col items-start justify-between gap-3 text-xs sm:flex-row sm:items-center">
+          <p className="text-slate-400">
+            Made by{" "}
+            <a
+              href="mailto:dipto2041@gmail.com"
+              className="font-semibold text-slate-200 transition-colors hover:text-accent"
+            >
+              Shahriar Ahmed Dipto
+            </a>
+          </p>
+          <p className="text-slate-400">
+            Need a similar website?{" "}
+            <a
+              href="mailto:dipto2041@gmail.com"
+              className="font-semibold text-slate-200 transition-colors hover:text-accent"
+            >
+              dipto2041@gmail.com
+            </a>
+          </p>
+        </div>
       </Container>
     </footer>
   );
